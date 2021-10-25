@@ -3,6 +3,8 @@ import Loginscreen from './screens/Loginscreen';
 import Signupscreen from './screens/Signupscreen';
 import Otpscreen from './screens/Otpscreen';
 import Forgetscreen from './screens/Forgetscreen';
+import Resetscreen from './screens/Resetscreen';
+import Onbordingscreens from './screens/Onbordingscreens';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -18,11 +20,13 @@ function App() {
     <NavigationContainer theme={MyTheme}>
       <Stack.Navigator
         screenOptions={{headerShown: false}}
-        initialRouteName="Otp">
+        initialRouteName="Onbording">
         <Stack.Screen name="Login" component={Loginscreen} />
         <Stack.Screen name="Signup" component={Signupscreen} />
         <Stack.Screen name="Otp" component={Otpscreen} />
         <Stack.Screen name="Forgot" component={Forgetscreen} />
+        <Stack.Screen name="Reset" component={Resetscreen} />
+        <Stack.Screen name="Onbording" component={Onbordingscreens} />
       </Stack.Navigator>
     </NavigationContainer>
   );
