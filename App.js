@@ -1,4 +1,5 @@
 import React from 'react';
+import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -18,46 +19,118 @@ import Resetscreen from './screens/Resetscreen';
 import Onbordingscreens from './screens/Onbordingscreens';
 import Categoryscreen from './screens/Categoryscreen';
 
-const Tab = createBottomTabNavigator();
+//icons
 
+import Homeicon from 'react-native-vector-icons/FontAwesome';
+import Carticon from 'react-native-vector-icons/Feather';
+import Hearticon from 'react-native-vector-icons/FontAwesome';
+import Usericon from 'react-native-vector-icons/FontAwesome5';
+import Scanicon from './assets/scan.png';
+
+//importts
+
+import {TouchableOpacity, View, Image} from 'react-native';
+
+const Stack = createNativeStackNavigator();
 const App = () => {
+  const MyTheme = {
+    colors: {
+      background: 'transperent',
+    },
+  };
+
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-        tabBarOptions={{
-          labelStyle: {fontSize: 18},
-          activeTintColor: 'red',
-          inactiveTintColor: 'black',
-        }}>
-        <Tab.Screen name="Home" component={Homestack} />
-        <Tab.Screen name="Cart" component={Cartscreen} />
-        <Tab.Screen name="Scan" component={Scanqrscreen} />
-        <Tab.Screen name="Like" component={Likescreen} />
-        <Tab.Screen name="Profile" component={Profilescreen} />
-      </Tab.Navigator>
+    <NavigationContainer theme={MyTheme}>
+      <Stack.Navigator
+        screenOptions={{headerShown: false}}
+        initialRouteName="Home">
+        <Stack.Screen name="Login" component={Loginscreen} />
+        <Stack.Screen name="Signup" component={Signupscreen} />
+        <Stack.Screen name="Otp" component={Otpscreen} />
+        <Stack.Screen name="Forgot" component={Forgetscreen} />
+        <Stack.Screen name="Reset" component={Resetscreen} />
+        <Stack.Screen name="Onbording" component={Onbordingscreens} />
+        <Stack.Screen name="Category" component={Categoryscreen} />
+        <Stack.Screen name="Home" component={Hometab} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-const Homestack = () => {
+const Hometab = () => {
   return (
-    <Stack.Navigator
-      screenOptions={{headerShown: false}}
-      initialRouteName="Home">
-      <Stack.Screen name="Login" component={Loginscreen} />
-      <Stack.Screen name="Signup" component={Signupscreen} />
-      <Stack.Screen name="Otp" component={Otpscreen} />
-      <Stack.Screen name="Forgot" component={Forgetscreen} />
-      <Stack.Screen name="Reset" component={Resetscreen} />
-      <Stack.Screen name="Onbording" component={Onbordingscreens} />
-      <Stack.Screen name="Category" component={Categoryscreen} />
-      <Stack.Screen name="Home" component={Homescreen} />
-    </Stack.Navigator>
+    <Tab.Navigator
+      initialRouteName="Homescreen"
+      screenOptions={{
+        headerShown: false,
+        tabBarShowLabel: false,
+        tabBarActiveTintColor: '#FF7465',
+        tabBarInactiveTintColor: '#D8D8D8',
+        tabBarStyle: {
+          position: 'absolute',
+          backgroundColor: '#fff',
+          borderColor: '#fff',
+          height: 100,
+          paddingTop: 10,
+          borderRadius: 35,
+          borderWidth: 1,
+        },
+      }}>
+      <Tab.Screen
+        name="Hometab"
+        component={Homescreen}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Homeicon name="home" color={color} size={25} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Carttab"
+        component={Cartscreen}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Carticon name="shopping-cart" color={color} size={25} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Scantab"
+        component={Scanqrscreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <TouchableOpacity>
+              <View>
+                <Image
+                  style={{width: 80, height: 80, marginTop: -60}}
+                  source={Scanicon}
+                />
+              </View>
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Liketab"
+        component={Likescreen}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Hearticon name="heart" color={color} size={25} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profiletab"
+        component={Profilescreen}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Usericon name="user-alt" color={color} size={25} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
 };
 

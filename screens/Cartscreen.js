@@ -1,11 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View,SafeAreaView} from 'react-native';
 
-const Cartscreen = () => {
+const Cartscreen = ({navigation}) => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>Cartscreen</Text>
-    </View>
+      <Text onPress={() => navigation.navigate('Signup')}>Signup Screen</Text>
+    </SafeAreaView>
   );
 };
 
