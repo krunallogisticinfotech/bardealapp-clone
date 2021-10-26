@@ -28,7 +28,6 @@ const Onbordingscreens = ({navigation}) => {
     <SafeAreaView style={{flex: 1}}>
       <Onboarding
         onDone={() => navigation.navigate('Login')}
-        skipLabel={false}
         DoneButtonComponent={Done}
         bottomBarColor="#fff"
         NextButtonComponent={Next}

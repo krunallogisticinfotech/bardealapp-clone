@@ -85,6 +85,11 @@ const Signupscreen = ({navigation}) => {
                   color="#c6c6c7"
                 />
               </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Forgot')}
+                style={styles.forgotPass}>
+                <Text style={styles.forgotPassText}>Forgot Password</Text>
+              </TouchableOpacity>
             </View>
           </View>
 
@@ -210,7 +215,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FF7465',
     justifyContent: 'flex-end',
     alignItems: 'center',
-    marginTop: 160,
+    marginTop: 145,
     borderRadius: 50,
   },
   registerContainer: {
@@ -220,5 +225,15 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: '600',
+  },
+  forgotPass: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginTop: 10,
+  },
+  forgotPassText: {
+    fontSize: 14,
+    color: '#757575',
+    marginRight:10,
   },
 });
