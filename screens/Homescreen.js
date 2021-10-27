@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Searchicon from 'react-native-vector-icons/AntDesign';
-import Bellicon from 'react-native-vector-icons/Feather';
+import Optionicon from 'react-native-vector-icons/Ionicons';
 import FreeShiping from '../assets/freeshiping.png';
 
 //productcard
@@ -33,6 +33,7 @@ const Homescreen = ({navigation}) => {
             name="search1"
             size={22}
             color={'#bdbdbd'}
+            onPress={() => navigation.push('Clicksearch')}
           />
           <TextInput
             style={styles.searchField}
@@ -41,7 +42,7 @@ const Homescreen = ({navigation}) => {
         </View>
         <TouchableOpacity>
           <View style={styles.notifyContainer}>
-            <Bellicon name="bell" color={'#bdbdbd'} size={22} />
+            <Optionicon name="options" color={'#bdbdbd'} size={22} />
           </View>
         </TouchableOpacity>
       </View>

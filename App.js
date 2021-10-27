@@ -18,15 +18,15 @@ import Forgetscreen from './screens/Forgetscreen';
 import Resetscreen from './screens/Resetscreen';
 import Onbordingscreens from './screens/Onbordingscreens';
 import Categoryscreen from './screens/Categoryscreen';
-
+import Clicksearchscreeen from './screens/Clicksearchscreeen';
+import Notificationscreen from './screens/Notificationscreen';
 //icons
 
 import Homeicon from 'react-native-vector-icons/FontAwesome';
-import Carticon from 'react-native-vector-icons/Feather';
 import Hearticon from 'react-native-vector-icons/FontAwesome';
 import Usericon from 'react-native-vector-icons/FontAwesome5';
 import Scanicon from './assets/scan.png';
-
+import Bellicon from 'react-native-vector-icons/FontAwesome';
 //importts
 
 import {TouchableOpacity, View, Image} from 'react-native';
@@ -51,6 +51,9 @@ const App = () => {
         <Stack.Screen name="Reset" component={Resetscreen} />
         <Stack.Screen name="Onbording" component={Onbordingscreens} />
         <Stack.Screen name="Category" component={Categoryscreen} />
+        <Stack.Screen name="Clicksearch" component={Clicksearchscreeen} />
+        <Stack.Screen name="Notification" component={Notificationscreen} />
+        <Stack.Screen name="Scanqr" component={Scanqrscreen} />
         <Stack.Screen name="Home" component={Hometab} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -59,7 +62,7 @@ const App = () => {
 
 const Tab = createBottomTabNavigator();
 
-const Hometab = () => {
+const Hometab = ({navigation}) => {
   return (
     <Tab.Navigator
       initialRouteName="Homescreen"
@@ -68,6 +71,7 @@ const Hometab = () => {
         tabBarShowLabel: false,
         tabBarActiveTintColor: '#FF7465',
         tabBarInactiveTintColor: '#D8D8D8',
+
         tabBarStyle: {
           position: 'absolute',
           backgroundColor: '#fff',
@@ -89,10 +93,10 @@ const Hometab = () => {
       />
       <Tab.Screen
         name="Carttab"
-        component={Cartscreen}
+        component={Likescreen}
         options={{
           tabBarIcon: ({color, size}) => (
-            <Carticon name="shopping-cart" color={color} size={25} />
+            <Hearticon name="heart" color={color} size={25} />
           ),
         }}
       />
@@ -101,7 +105,7 @@ const Hometab = () => {
         component={Scanqrscreen}
         options={{
           tabBarIcon: ({focused}) => (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Scanqr')}>
               <View>
                 <Image
                   style={{width: 80, height: 80, marginTop: -60}}
@@ -114,10 +118,10 @@ const Hometab = () => {
       />
       <Tab.Screen
         name="Liketab"
-        component={Likescreen}
+        component={Notificationscreen}
         options={{
           tabBarIcon: ({color, size}) => (
-            <Hearticon name="heart" color={color} size={25} />
+            <Bellicon name="bell" color={color} size={25} />
           ),
         }}
       />
