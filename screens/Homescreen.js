@@ -46,37 +46,37 @@ const Homescreen = ({navigation}) => {
           </View>
         </TouchableOpacity>
       </View>
-      <View style={styles.headBanner}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <TouchableOpacity>
-            <Image style={styles.headBannerImage} source={FreeShiping} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image style={styles.headBannerImage} source={FreeShiping} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image style={styles.headBannerImage} source={FreeShiping} />
-          </TouchableOpacity>
-        </ScrollView>
-      </View>
-      <View style={styles.filterContainer}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <TouchableOpacity style={styles.filterTextWrap}>
-            <Text style={styles.filterText}>All</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.filterTextWrap}>
-            <Text style={styles.filterText}>Category</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.filterTextWrap}>
-            <Text style={styles.filterText}>Top</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.filterTextWrap}>
-            <Text style={styles.filterText}>Recommended</Text>
-          </TouchableOpacity>
-        </ScrollView>
-      </View>
-      <View style={styles.productContainer}>
-        <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.headBanner}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <TouchableOpacity>
+              <Image style={styles.headBannerImage} source={FreeShiping} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image style={styles.headBannerImage} source={FreeShiping} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image style={styles.headBannerImage} source={FreeShiping} />
+            </TouchableOpacity>
+          </ScrollView>
+        </View>
+        <View style={styles.filterContainer}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <TouchableOpacity style={styles.filterTextWrap}>
+              <Text style={styles.filterText}>All</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.filterTextWrap}>
+              <Text style={styles.filterText}>Category</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.filterTextWrap}>
+              <Text style={styles.filterText}>Top</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.filterTextWrap}>
+              <Text style={styles.filterText}>Recommended</Text>
+            </TouchableOpacity>
+          </ScrollView>
+        </View>
+        <View style={styles.productContainer}>
           <View style={styles.productsCards}>
             <Productcard
               img={Productimage1}
@@ -119,8 +119,8 @@ const Homescreen = ({navigation}) => {
               price={'$125.00'}
             />
           </View>
-        </ScrollView>
-      </View>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
